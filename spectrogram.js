@@ -205,6 +205,7 @@
       source.sourceNode.stop();
     }
     this._audioEnded = true;
+    this._paused = true;
   };
 
   Spectrogram.prototype.pause = function() {
@@ -227,14 +228,16 @@
 
     this.stop();
 
-    if (toString.call(source.scriptNode) === '[object ScriptProcessorNode]') {
-      source.scriptNode.onaudioprocess = null;
-    }
+    // if(source) {
+    //   if (toString.call(source.scriptNode) === '[object ScriptProcessorNode]') {
+    //     source.scriptNode.onaudioprocess = null;
+    //   }
+    // }
 
-    canvasContext = canvasContext || source.canvasContext;
-    var canvas = canvasContext.canvas;
-    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
-    canvasContext._tempContext.clearRect(0, 0, canvas.width, canvas.height);
+    // canvasContext = canvasContext || source.canvasContext;
+    // var canvas = canvasContext.canvas;
+    // canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+    // canvasContext._tempContext.clearRect(0, 0, canvas.width, canvas.height);
     this._baseCanvasContext.clearRect(0, 0, canvas.width, canvas.height);
   };
 

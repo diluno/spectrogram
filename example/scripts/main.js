@@ -59,10 +59,16 @@ function init() {
   microphoneButton = document.getElementById('btn-microphone');
   songButton = document.getElementById('btn-song');
   songSelect = document.getElementById('select-song');
+  stopButton = document.getElementById('btn-stop');
+  clearButton = document.getElementById('btn-clear');
 
   microphoneButton.disabled = false;
+  stopButton.disabled = false;
+  clearButton.disabled = false;
 
   microphoneButton.addEventListener('click', requestMic, false);
+  stopButton.addEventListener('click', stop, false);
+  clearButton.addEventListener("click", clear, false);
   songButton.addEventListener('click', playSong, false);
   songSelect.addEventListener('change', selectMedia, false);
 
@@ -132,9 +138,18 @@ function handleMicError(error) {
 }
 
 function removeControls() {
+  return;
   songSelect.parentNode.removeChild(songSelect);
   songButton.parentNode.removeChild(songButton);
   microphoneButton.parentNode.removeChild(microphoneButton);
+}
+
+function stop() {
+  spectro.stop();
+}
+
+function clear() {
+  spectro.clear();
 }
 
 window.addEventListener('load', init, false);
