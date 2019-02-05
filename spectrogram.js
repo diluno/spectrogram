@@ -31,6 +31,8 @@
     this._baseCanvas.width = _result(baseCanvasOptions.width) || this._baseCanvas.width;
     this._baseCanvas.height = _result(baseCanvasOptions.height) || this._baseCanvas.height;
 
+    this._drawIndex = 0;
+
     window.onresize = function() {
       this._baseCanvas.width = _result(baseCanvasOptions.width) || this._baseCanvas.width;
       this._baseCanvas.height = _result(baseCanvasOptions.height) || this._baseCanvas.height;
@@ -84,6 +86,8 @@
         return false;
       }
 
+      this._drawIndex++;
+
       var canvas = canvasContext.canvas;
       var width = canvas.width;
       var height = canvas.height;
@@ -97,15 +101,15 @@
         if (this._audioEnded) {
           canvasContext.fillStyle = this._getColor(0);
         }
-        canvasContext.fillRect(width - 1, height - i, 1, 1);
+        canvasContext.fillRect(this._drawIndex, height-i, 1, 1);
       }
 
-      canvasContext.translate(-1, 0);
+      // canvasContext.translate(-1, 0);
       // draw prev canvas before translation
       canvasContext.drawImage(tempCanvas, 0, 0, width, height, 0, 0, width, height);
       canvasContext.drawImage(tempCanvas, 0, 0, width, height, 0, 0, width, height);
       // reset transformation matrix
-      canvasContext.setTransform(1, 0, 0, 1, 0, 0);
+      // canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 
       this._baseCanvasContext.drawImage(canvas, 0, 0, width, height);
   };

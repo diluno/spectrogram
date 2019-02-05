@@ -12,11 +12,11 @@ var selectedMedia;
 
 var media = [
   {
-    file: 'media/aphex_twins_equation.mp3',
+    file: '/example/media/aphex_twins_equation.mp3',
     slice: {start: 320000, end: 340000}
   },
   {
-    file: 'media/ethos_final_hope.mp3',
+    file: '/example/media/ethos_final_hope.mp3',
     slice: {start: 50000, end: 170000}
   }
 ];
@@ -33,8 +33,8 @@ function init() {
       enable: true
     },
     colors: function(steps) {
-      var baseColors = [[0,0,255,1], [0,255,255,1], [0,255,0,1], [255,255,0,1], [ 255,0,0,1]];
-      var positions = [0, 0.15, 0.30, 0.50, 0.75];
+      var baseColors = [[255, 255, 255, 1], [0, 0, 0, 1]];
+      var positions = [0, 1];
 
       var scale = new chroma.scale(baseColors, positions)
       .domain([0, steps]);
