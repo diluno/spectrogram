@@ -33,7 +33,7 @@ function init() {
       enable: true
     },
     colors: function(steps) {
-      var baseColors = [[255, 255, 255, 1], [0, 0, 0, 1]];
+      var baseColors = [[255, 0, 255, 1], [0, 0, 0, 1]];
       var positions = [0, 1];
 
       var scale = new chroma.scale(baseColors, positions)

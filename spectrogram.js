@@ -16,6 +16,8 @@
       return new Spectrogram(canvas, options);
     }
 
+    this._targetHeight = 257;
+    
     var baseCanvasOptions = options.canvas || {};
     this._audioEnded = null;
     this._paused = null;
@@ -85,9 +87,9 @@
       if (this._paused) {
         return false;
       }
-
+      
       this._drawIndex++;
-
+    
       var canvas = canvasContext.canvas;
       var width = canvas.width;
       var height = canvas.height;
@@ -101,7 +103,8 @@
         if (this._audioEnded) {
           canvasContext.fillStyle = this._getColor(0);
         }
-        canvasContext.fillRect(this._drawIndex, height-i, 1, 1);
+        var y = this._targetHeight / array.length * i;
+        canvasContext.fillRect(this._drawIndex, height-y, 1, 1);
       }
 
       // canvasContext.translate(-1, 0);
