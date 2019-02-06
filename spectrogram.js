@@ -16,7 +16,7 @@
       return new Spectrogram(canvas, options);
     }
 
-    this._targetHeight = 257;
+    this._targetHeight = 513;
     
     var baseCanvasOptions = options.canvas || {};
     this._audioEnded = null;
