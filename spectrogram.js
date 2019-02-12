@@ -104,7 +104,7 @@
           canvasContext.fillStyle = this._getColor(0);
         }
         var y = this._targetHeight / array.length * i;
-        canvasContext.fillRect(this._drawIndex-10, height-y, 1, 1);
+        canvasContext.fillRect(this._drawIndex, height-y, 1, 1);
       }
 
       // canvasContext.translate(-1, 0);
